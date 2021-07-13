@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "杨熠涵",
+    "detailType": "txt",
+    "detail": "18岁，今年毕业于成都七中林荫校区，工作认真，有亲和力善于与他人相处，并且乐于为同学解答问题。（附:高考成绩696，语文122，数学150，英语141，物理103，化学93，生物87）",
+    "contact": ["微信: perfectcrossover"]
+  },{
+    "id": 2,
+    "name": "罗紫怡",
+    "detailType": "pdf",
+    "detail": "lzy",
+    "contact": ["微信: acb14664066", "手机：15280983847"]
+  },{
+    "id": 3,
+    "name": "王静颖",
+    "detailType": "txt",
+    "detail": "毕业于成都七中林荫校区，我价格便宜还送学习资料",
+    "contact": ["微信: w15228876720"]
+  },{
+    "id": 4,
+    "name": "华淇玥",
+    "detailType": "pdf",
+    "detail": "hqy",
+    "contact": ["微信: ChloeHua411", "手机：18349116269", "邮箱：2051051@tongji.edu.cn"]
+  },{
+    "id": 5,
+    "name": "王文韬",
+    "detailType": "txt",
+    "detail": "目前就读于上海交通大学。比较擅长数理化，不太擅长英语。对同学有一个小小的要求，希望辅导的同学是自身希望能够提升自己，而非被迫。",
+    "contact": ["微信: w18121875068"]
+  },{
+    "id": 6,
+    "name": "杨乐涵",
+    "detailType": "web",
+    "detail": "https://bio.lehanyang.info/",
+    "contact": ["微信: Xsourse"]
+  }
+]
