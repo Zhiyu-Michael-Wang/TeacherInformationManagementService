@@ -28,7 +28,7 @@ class UserList extends React.Component {
 
     getData(){
         const self = this
-        axios.get('http://' + this.backendLoc + '/users/')
+        axios.get('https://' + this.backendLoc + '/users/')
             .then(response => {
                 if (response.data.length > 0){
                     self.setState({
@@ -44,7 +44,7 @@ class UserList extends React.Component {
     }
 
     onSubmitData(user){
-        axios.post('http://' + this.backendLoc + '/users/add', user)
+        axios.post('https://' + this.backendLoc + '/users/add', user)
             .then(res => {
                 this.getData()
             })
@@ -54,7 +54,7 @@ class UserList extends React.Component {
     deleteUser(id){
         const self = this
         console.log(`deleting ${id} ...`)
-        axios.delete('http://' + this.backendLoc + '/users/' + id)
+        axios.delete('https://' + this.backendLoc + '/users/' + id)
             .then(res => console.log(res.data))
         self.setState({
             users: self.state.users.filter(el => el._id !== id)
