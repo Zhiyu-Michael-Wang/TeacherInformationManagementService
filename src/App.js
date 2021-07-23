@@ -1,5 +1,6 @@
 import React from 'react'
 import UserList from './components/UserList'
+import AllUserInfo from './components/AllUserInfo'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import PDF from './components/PDF'
 import Title from './components/Title'

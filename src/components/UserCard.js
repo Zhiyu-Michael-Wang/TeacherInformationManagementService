@@ -1,12 +1,18 @@
 import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Card, Icon, Button } from 'semantic-ui-react'
 
 
 
 class UserCard extends React.Component {
 
-    
+    constructor(){
+        super()
+        this.deleteUser = this.deleteUser.bind(this)
+    }
+
+    deleteUser(){
+        this.props.deleteUser(this.props.userData.id)
+    }
 
     render() {
 
@@ -18,7 +24,7 @@ class UserCard extends React.Component {
 
         const props = this.props
         const userData = props.userData
-        console.log(userData)
+        // console.log(userData)
 
         return (
             <div className="UserCard">
@@ -27,8 +33,14 @@ class UserCard extends React.Component {
                         <Card.Header>
                             <Icon name='user circle' />
                             {userData.name}
+                            
+                            <Button.Group basic size='mini' floated='right'>
+                                <Button icon='pencil alternate' />
+                                <Button icon='trash alternate outline' onClick={this.deleteUser}/>
+                            </Button.Group>
                         </Card.Header>
-                        
+                    </Card.Content>
+                    <Card.Content>    
                         {(() => {
                             switch (userData.detailType) {
                                 case "pdf": return (
@@ -40,7 +52,7 @@ class UserCard extends React.Component {
                                     </a>
                                 );
                                 case "web":  return (
-                                    <a href={userData.detail}>访问我的个人网站以了解详情</a>
+                                    <a href={'https://' + userData.detail}>访问我的个人网站以了解详情</a>
                                 );
                                 default: return (
                                     <Card.Meta>
