@@ -1,7 +1,6 @@
 import React from 'react'
 import UserCard from './UserCard'
-import { Card, Grid } from 'semantic-ui-react'
-import users from '../data/Users.json'
+import { Card } from 'semantic-ui-react'
 import CreateUser from './CreateUser'
 import axios from 'axios'
 
@@ -16,7 +15,8 @@ class UserList extends React.Component {
         }
         this.onSubmitData = this.onSubmitData.bind(this)
         this.deleteUser = this.deleteUser.bind(this)
-        this.backendLoc = 'Teacherinfomanage-env.eba-ip323p7e.us-east-1.elasticbeanstalk.com'
+        this.backendLoc = 'teacher-info-db.herokuapp.com'
+        this.wrapper = React.createRef();
     }
 
     // getDataLocal() {
@@ -28,7 +28,7 @@ class UserList extends React.Component {
 
     getData(){
         const self = this
-        axios.get('https://' + this.backendLoc + '/users/')
+        axios.get('http://' + this.backendLoc + '/users/')
             .then(response => {
                 if (response.data.length > 0){
                     self.setState({
@@ -44,7 +44,7 @@ class UserList extends React.Component {
     }
 
     onSubmitData(user){
-        axios.post('https://' + this.backendLoc + '/users/add', user)
+        axios.post('http://' + this.backendLoc + '/users/add', user)
             .then(res => {
                 this.getData()
             })
@@ -54,7 +54,7 @@ class UserList extends React.Component {
     deleteUser(id){
         const self = this
         console.log(`deleting ${id} ...`)
-        axios.delete('https://' + this.backendLoc + '/users/' + id)
+        axios.delete('http://' + this.backendLoc + '/users/' + id)
             .then(res => console.log(res.data))
         self.setState({
             users: self.state.users.filter(el => el._id !== id)
@@ -78,7 +78,11 @@ class UserList extends React.Component {
         ) 
 
         return (
-            <div className="UserList" style={{ maxWidth: "1000px", margin: "auto" }}>
+            <div 
+                className="UserList" 
+                style={{ maxWidth: "1000px", margin: "auto" }}
+                ref={this.wrapper}
+            >
                 {/* <Grid columns={2} centered padded> */}
                 <Card.Group centered>
                     {users}
